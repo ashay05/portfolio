@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ashay Kumar Portfolio</title>
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+body{
+background:#000021;
+color:white;
+}
+/* NAVBAR */
+nav{
+display:flex;
+justify-content:space-around;
+align-items:center;
+height:80px;
+background:#12123e;
+}
+.left{
+font-size:1.8rem;
+font-weight:bold;
+}
+nav ul{
+display:flex;
+}
+nav ul li{
+list-style:none;
+margin:0 20px;
+}
+nav ul li a{
+text-decoration:none;
+color:white;
+transition: color 0.3s ease;
+}
+nav ul li a:hover{
+color:#aa6be4;
+}
+/* FIRST */
+.firstSection{
+display:flex;
+justify-content:space-around;
+align-items:center;
+padding:100px 10%;
+flex-wrap:wrap;
+}
+.leftSection{
+width:45%;
+font-size:2.5rem;
+}
+.rightSection{
+width:40%;
+}
+.rightSection img{
+width:100%;
+max-width:450px;
+}
+.purple{
+color:#aa6be4;
+}
+#element{
+color:#aa6be4;
+}
+main hr{
+margin:50px auto;
+width:80%;
+height:2px;
+background:#9c97f1;
+border:none;
+}
+/* SECOND */
+.secondSection{
+max-width:80vw;
+margin:auto;
+padding-bottom:120px;
+}
+.text-gray{
+color:gray;
+}
+.secondSection h1{
+margin-top:10px;
+}
+.box{
+display:flex;
+justify-content:space-between;
+margin-top:60px;
+flex-wrap:wrap;
+}
+.vertical{
+width:45%;
+padding:20px;
+background:#12123e;
+border-radius:12px;
+}
+.image-top{
+width:45px;
+margin-bottom:20px;
+}
+.vertical-title{
+font-size:1.2rem;
+margin-bottom:20px;
+}
+.vertical-desc{
+color:#ccc;
+line-height:1.7;
+}
+.repo-links a{
+display:block;
+color:#aa6be4;
+margin:10px 0;
+text-decoration:none;
+transition: color 0.3s ease;
+}
+.repo-links a:hover{
+color:white;
+}
+.github{
+font-size:26px;
+margin-right:8px;
+}
+/* FLOATING CONTACT BUTTON */
+.floating-contact {
+position: fixed;
+bottom: 30px;
+right: 30px;
+width: 60px;
+height: 60px;
+border-radius: 50%;
+background: linear-gradient(135deg, #aa6be4, #6b21a8);
+color: white;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 24px;
+cursor: pointer;
+box-shadow: 0 4px 20px rgba(170, 107, 228, 0.4);
+transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+z-index: 999;
+}
+.floating-contact:hover {
+transform: scale(1.1) rotate(15deg);
+box-shadow: 0 8px 25px rgba(170, 107, 228, 0.7);
+}
+.floating-contact::after {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+border-radius: 50%;
+border: 2px solid #aa6be4;
+opacity: 0;
+animation: pulse 2s infinite;
+pointer-events: none;
+}
+@keyframes pulse {
+0% {
+transform: scale(1);
+opacity: 0.6;
+}
+100% {
+transform: scale(1.4);
+opacity: 0;
+}
+}
+/* CONTACT MODAL */
+.modal {
+display: none;
+position: fixed;
+z-index: 10000;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 33, 0.75);
+backdrop-filter: blur(10px);
+justify-content: center;
+align-items: center;
+opacity: 0;
+transition: opacity 0.4s ease;
+}
+.modal.show {
+display: flex;
+opacity: 1;
+}
+.modal-content {
+background: rgba(18, 18, 62, 0.95);
+border: 1px solid rgba(170, 107, 228, 0.3);
+padding: 40px;
+width: 90%;
+max-width: 500px;
+border-radius: 20px;
+box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(170, 107, 228, 0.2);
+text-align: center;
+position: relative;
+transform: translateY(-50px) scale(0.9);
+transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.modal.show .modal-content {
+transform: translateY(0) scale(1);
+}
+.close-btn {
+position: absolute;
+top: 20px;
+right: 25px;
+color: #ccc;
+font-size: 28px;
+font-weight: bold;
+cursor: pointer;
+transition: color 0.3s, transform 0.3s;
+}
+.close-btn:hover {
+color: #aa6be4;
+transform: rotate(90deg);
+}
+.modal-content h2 {
+font-size: 2rem;
+margin-bottom: 8px;
+background: linear-gradient(135deg, #ffffff, #aa6be4);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+font-weight: 700;
+}
+.modal-subtitle {
+color: #9c97f1;
+font-size: 0.95rem;
+margin-bottom: 30px;
+}
+.contact-methods {
+display: flex;
+flex-direction: column;
+gap: 15px;
+margin-bottom: 30px;
+}
+.contact-item {
+display: flex;
+align-items: center;
+background: rgba(0, 0, 33, 0.5);
+padding: 15px 20px;
+border-radius: 12px;
+border: 1px solid rgba(255, 255, 255, 0.05);
+transition: border-color 0.3s, transform 0.3s, background-color 0.3s;
+}
+.contact-item:hover {
+border-color: rgba(170, 107, 228, 0.5);
+background: rgba(18, 18, 62, 0.8);
+transform: translateX(5px);
+}
+.contact-icon {
+font-size: 1.5rem;
+color: #aa6be4;
+margin-right: 20px;
+width: 25px;
+text-align: center;
+}
+.contact-item div {
+text-align: left;
+}
+.contact-label {
+display: block;
+font-size: 0.75rem;
+color: #888;
+text-transform: uppercase;
+letter-spacing: 1px;
+margin-bottom: 2px;
+}
+.contact-value {
+color: #fff;
+font-size: 1.05rem;
+text-decoration: none;
+font-weight: 500;
+transition: color 0.3s;
+word-break: break-all;
+}
+.contact-value:hover {
+color: #aa6be4;
+}
+.social-links-title {
+font-size: 0.85rem;
+color: #888;
+margin-bottom: 15px;
+text-transform: uppercase;
+letter-spacing: 1px;
+}
+.social-icons {
+display: flex;
+justify-content: center;
+gap: 15px;
+}
+.social-icon {
+display: flex;
+justify-content: center;
+align-items: center;
+width: 48px;
+height: 48px;
+border-radius: 50%;
+background: rgba(18, 18, 62, 0.6);
+border: 1px solid rgba(255, 255, 255, 0.1);
+color: #fff;
+font-size: 1.3rem;
+text-decoration: none;
+transition: transform 0.3s, background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+.social-icon:hover {
+transform: translateY(-5px);
+color: #fff;
+}
+.social-icon.instagram:hover {
+background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+border-color: transparent;
+box-shadow: 0 5px 15px rgba(214, 36, 159, 0.4);
+}
+.social-icon.github-social:hover {
+background: #24292e;
+border-color: transparent;
+box-shadow: 0 5px 15px rgba(36, 41, 46, 0.4);
+}
+.social-icon.linkedin:hover {
+background: #0077b5;
+border-color: transparent;
+box-shadow: 0 5px 15px rgba(0, 119, 181, 0.4);
+}
+/* MOBILE */
+@media(max-width:768px){
+.firstSection{
+flex-direction:column;
+text-align:center;
+}
+.leftSection,
+.rightSection,
+.vertical{
+width:100%;
+}
+.leftSection{
+font-size:2rem;
+}
+nav{
+flex-direction:column;
+height:auto;
+padding:20px;
+}
+nav ul{
+margin-top:15px;
+flex-wrap:wrap;
+justify-content:center;
+}
+.modal-content {
+padding: 30px 20px;
+}
+.floating-contact {
+bottom: 20px;
+right: 20px;
+width: 50px;
+height: 50px;
+font-size: 20px;
+}
+}
+</style>
+</head>
+<body>
+<header>
+<nav>
+<div class="left">
+Ashay's Portfolio
+</div>
+<div class="right">
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#">About</a></li>
+<li><a href="#">Services</a></li>
+<li><a href="#">Projects</a></li>
+<li><a href="#" id="contactLink">Contact</a></li>
+</ul>
+</div>
+</nav>
+</header>
+<main>
+<section class="firstSection">
+<div class="leftSection">
+Hi, My name is
+<span class="purple">
+Ashay Kumar
+</span>
+<div>
+and I am passionate
+</div>
+<span id="element"></span>
+</div>
+<div class="rightSection">
+<img src="image (1).jpg" alt="Portfolio">
+</div>
+</section>
+<hr>
+<section class="secondSection">
+<span class="text-gray">
+What I have done so far
+</span>
+<h1>Work Experience</h1>
+<div class="box">
+<!-- Experience -->
+<div class="vertical">
+<img
+class="image-top"
+src="kh3jda5g89fhgsrmsl7g.png">
+<div class="vertical-title">
+HTML Developer
+(2025–2026)
+</div>
+<div class="vertical-desc">
+Built responsive websites using HTML, CSS and JavaScript.
+Created user-friendly UI and optimized mobile performance.
+Worked on academic and personal projects.
+</div>
+</div>
+<!-- Github -->
+<div class="vertical">
+<img
+class="image-top"
+src="github.png">
+<div class="vertical-title">
+<i class="fa-brands fa-github github"></i>
+<a
+href="https://github.com/ashay05"
+target="_blank"
+style="color:white;text-decoration:none;">
+My GitHub Repositories
+</a>
+</div>
+<div class="vertical-desc repo-links">
+🧮
+<a href="https://ashay05.github.io/calculator/" target="_blank">
+Calculator
+</a>
+🎵
+<a href="https://ashay05.github.io/music-A-H/" target="_blank">
+Music-A-H
+</a>
+💻
+<a href="https://ashay05.github.io/ashay05/" target="_blank">
+Ashay05
+</a>
+🌐
+<a href="https://ashay05.github.io/AFASH/" target="_blank">
+AFASH
+</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating Contact Icon -->
+<div class="floating-contact" id="floatingContact" title="Contact Me">
+<i class="fa-solid fa-address-book"></i>
+</div>
+<!-- Contact Modal -->
+<div id="contactModal" class="modal">
+<div class="modal-content">
+<span class="close-btn" id="closeModal">&times;</span>
+<h2>Get in Touch</h2>
+<p class="modal-subtitle">Feel free to reach out to me for collaborations or inquiries!</p>
+<div class="contact-methods">
+<div class="contact-item">
+<i class="fa-solid fa-phone contact-icon"></i>
+<div>
+<span class="contact-label">Mobile No</span>
+<a href="tel:9142105270" class="contact-value">9142105270</a>
+</div>
+</div>
+<div class="contact-item">
+<i class="fa-solid fa-envelope contact-icon"></i>
+<div>
+<span class="contact-label">Email</span>
+<a href="mailto:kumarashay072@gmail.com" class="contact-value">kumarashay072@gmail.com</a>
+</div>
+</div>
+</div>
+<div class="social-links-title">Connect with me</div>
+<div class="social-icons">
+<a href="https://www.instagram.com/ashay_05/" target="_blank" class="social-icon instagram" title="Instagram">
+<i class="fa-brands fa-instagram"></i>
+</a>
+<a href="https://github.com/ashay05" target="_blank" class="social-icon github-social" title="GitHub">
+<i class="fa-brands fa-github"></i>
+</a>
+<a href="https://www.linkedin.com/in/ashay-kumar-8b3176367/" target="_blank" class="social-icon linkedin" title="LinkedIn">
+<i class="fa-brands fa-linkedin-in"></i>
+</a>
+</div>
+</div>
+</div>
+<script src="https://unpkg.com/typed.js@3.0.0/dist/typed.umd.js"></script>
+<script>
+new Typed('#element',{
+strings:[
+'Web Developer',
+'Graphic Designer',
+'Web Designer'
+],
+typeSpeed:60,
+backSpeed:40,
+loop:true
+});
+// Contact Modal Functionality
+const contactModal = document.getElementById('contactModal');
+const contactLink = document.getElementById('contactLink');
+const floatingContact = document.getElementById('floatingContact');
+const closeModal = document.getElementById('closeModal');
+function openContactModal(e) {
+if (e) e.preventDefault();
+contactModal.style.display = 'flex';
+// Force reflow to enable transition
+contactModal.offsetHeight;
+contactModal.classList.add('show');
+document.body.style.overflow = 'hidden';
+}
+function closeContactModal() {
+contactModal.classList.remove('show');
+setTimeout(() => {
+contactModal.style.display = 'none';
+document.body.style.overflow = 'auto';
+}, 400);
+}
+// Event Listeners
+contactLink.addEventListener('click', openContactModal);
+floatingContact.addEventListener('click', openContactModal);
+closeModal.addEventListener('click', closeContactModal);
+// Close on clicking outside modal content
+window.addEventListener('click', (e) => {
+if (e.target === contactModal) {
+closeContactModal();
+}
+});
+</script>
+</body>
+</html>
